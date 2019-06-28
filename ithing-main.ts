@@ -1362,10 +1362,6 @@ namespace ntcPac {
     }
 
 }
-/**
- * makecode BME180 digital pressure and humidity sensor Package.
- * From microbit/micropython Chinese community.
- */
 
 
 /**

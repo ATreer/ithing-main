@@ -1,14 +1,14 @@
 {
-    "name": "anxin-oled",
+    "name": "ithing-main",
     "version": "0.6.25",
-    "description": "AdaFruit anxin-oled driver",
+    "description": "AdaFruit ithing-main driver",
     "license": "MIT",
     "dependencies": {
         "core": "*"
     },
     "files": [
         "README.md",
-        "anxin-oled.ts",
+        "ithing-main.ts",
 		"locales/zh/core-strings.json",
 		"locales/zh/core-jsdoc-strings.json"
     ],

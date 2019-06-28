@@ -1,145 +1,113 @@
 /**
 * makecode I2C OLED 128x64 Package.
 * From microbit/micropython Chinese community.
-* http://www.micropython.org.cn
 */
 
 //% weight=20 color=#0855AA icon="O" block="OLED"
 namespace OLED12864_I2C {
-    let font: number[] = [];
-    font[0] = 0x0022d422;
-    font[1] = 0x0022d422;
-    font[2] = 0x0022d422;
-    font[3] = 0x0022d422;
-    font[4] = 0x0022d422;
-    font[5] = 0x0022d422;
-    font[6] = 0x0022d422;
-    font[7] = 0x0022d422;
-    font[8] = 0x0022d422;
-    font[9] = 0x0022d422;
-    font[10] = 0x0022d422;
-    font[11] = 0x0022d422;
-    font[12] = 0x0022d422;
-    font[13] = 0x0022d422;
-    font[14] = 0x0022d422;
-    font[15] = 0x0022d422;
-    font[16] = 0x0022d422;
-    font[17] = 0x0022d422;
-    font[18] = 0x0022d422;
-    font[19] = 0x0022d422;
-    font[20] = 0x0022d422;
-    font[21] = 0x0022d422;
-    font[22] = 0x0022d422;
-    font[23] = 0x0022d422;
-    font[24] = 0x0022d422;
-    font[25] = 0x0022d422;
-    font[26] = 0x0022d422;
-    font[27] = 0x0022d422;
-    font[28] = 0x0022d422;
-    font[29] = 0x0022d422;
-    font[30] = 0x0022d422;
-    font[31] = 0x0022d422;
-    font[32] = 0x00000000;
-    font[33] = 0x000002e0;
-    font[34] = 0x00018060;
-    font[35] = 0x00afabea;
-    font[36] = 0x00aed6ea;
-    font[37] = 0x01991133;
-    font[38] = 0x010556aa;
-    font[39] = 0x00000060;
-    font[40] = 0x000045c0;
-    font[41] = 0x00003a20;
-    font[42] = 0x00051140;
-    font[43] = 0x00023880;
-    font[44] = 0x00002200;
-    font[45] = 0x00021080;
-    font[46] = 0x00000100;
-    font[47] = 0x00111110;
-    font[48] = 0x0007462e;
-    font[49] = 0x00087e40;
-    font[50] = 0x000956b9;
-    font[51] = 0x0005d629;
-    font[52] = 0x008fa54c;
-    font[53] = 0x009ad6b7;
-    font[54] = 0x008ada88;
-    font[55] = 0x00119531;
-    font[56] = 0x00aad6aa;
-    font[57] = 0x0022b6a2;
-    font[58] = 0x00000140;
-    font[59] = 0x00002a00;
-    font[60] = 0x0008a880;
-    font[61] = 0x00052940;
-    font[62] = 0x00022a20;
-    font[63] = 0x0022d422;
-    font[64] = 0x00e4d62e;
-    font[65] = 0x000f14be;
-    font[66] = 0x000556bf;
-    font[67] = 0x0008c62e;
-    font[68] = 0x0007463f;
-    font[69] = 0x0008d6bf;
-    font[70] = 0x000094bf;
-    font[71] = 0x00cac62e;
-    font[72] = 0x000f909f;
-    font[73] = 0x000047f1;
-    font[74] = 0x0017c629;
-    font[75] = 0x0008a89f;
-    font[76] = 0x0008421f;
-    font[77] = 0x01f1105f;
-    font[78] = 0x01f4105f;
-    font[79] = 0x0007462e;
-    font[80] = 0x000114bf;
-    font[81] = 0x000b6526;
-    font[82] = 0x010514bf;
-    font[83] = 0x0004d6b2;
-    font[84] = 0x0010fc21;
-    font[85] = 0x0007c20f;
-    font[86] = 0x00744107;
-    font[87] = 0x01f4111f;
-    font[88] = 0x000d909b;
-    font[89] = 0x00117041;
-    font[90] = 0x0008ceb9;
-    font[91] = 0x0008c7e0;
-    font[92] = 0x01041041;
-    font[93] = 0x000fc620;
-    font[94] = 0x00010440;
-    font[95] = 0x01084210;
-    font[96] = 0x00000820;
-    font[97] = 0x010f4a4c;
-    font[98] = 0x0004529f;
-    font[99] = 0x00094a4c;
-    font[100] = 0x000fd288;
-    font[101] = 0x000956ae;
-    font[102] = 0x000097c4;
-    font[103] = 0x0007d6a2;
-    font[104] = 0x000c109f;
-    font[105] = 0x000003a0;
-    font[106] = 0x0006c200;
-    font[107] = 0x0008289f;
-    font[108] = 0x000841e0;
-    font[109] = 0x01e1105e;
-    font[110] = 0x000e085e;
-    font[111] = 0x00064a4c;
-    font[112] = 0x0002295e;
-    font[113] = 0x000f2944;
-    font[114] = 0x0001085c;
-    font[115] = 0x00012a90;
-    font[116] = 0x010a51e0;
-    font[117] = 0x010f420e;
-    font[118] = 0x00644106;
-    font[119] = 0x01e8221e;
-    font[120] = 0x00093192;
-    font[121] = 0x00222292;
-    font[122] = 0x00095b52;
-    font[123] = 0x0008fc80;
-    font[124] = 0x000003e0;
-    font[125] = 0x000013f1;
-    font[126] = 0x00841080;
-    font[127] = 0x0022d422;
-
+    let font = [
+  0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+  0x00,0x00,0x5F,0x00,0x00,0x00,0x00,0x00,
+  0x00,0x00,0x07,0x00,0x07,0x00,0x00,0x00,
+  0x00,0x14,0x7F,0x14,0x7F,0x14,0x00,0x00,
+  0x00,0x24,0x2A,0x7F,0x2A,0x12,0x00,0x00,
+  0x00,0x23,0x13,0x08,0x64,0x62,0x00,0x00,
+  0x00,0x36,0x49,0x55,0x22,0x50,0x00,0x00,
+  0x00,0x00,0x05,0x03,0x00,0x00,0x00,0x00,
+  0x00,0x1C,0x22,0x41,0x00,0x00,0x00,0x00,
+  0x00,0x41,0x22,0x1C,0x00,0x00,0x00,0x00,
+  0x00,0x08,0x2A,0x1C,0x2A,0x08,0x00,0x00,
+  0x00,0x08,0x08,0x3E,0x08,0x08,0x00,0x00,
+  0x00,0xA0,0x60,0x00,0x00,0x00,0x00,0x00,
+  0x00,0x08,0x08,0x08,0x08,0x08,0x00,0x00,
+  0x00,0x60,0x60,0x00,0x00,0x00,0x00,0x00,
+  0x00,0x20,0x10,0x08,0x04,0x02,0x00,0x00,
+  0x00,0x3E,0x51,0x49,0x45,0x3E,0x00,0x00,
+  0x00,0x00,0x42,0x7F,0x40,0x00,0x00,0x00,
+  0x00,0x62,0x51,0x49,0x49,0x46,0x00,0x00,
+  0x00,0x22,0x41,0x49,0x49,0x36,0x00,0x00,
+  0x00,0x18,0x14,0x12,0x7F,0x10,0x00,0x00,
+  0x00,0x27,0x45,0x45,0x45,0x39,0x00,0x00,
+  0x00,0x3C,0x4A,0x49,0x49,0x30,0x00,0x00,
+  0x00,0x01,0x71,0x09,0x05,0x03,0x00,0x00,
+  0x00,0x36,0x49,0x49,0x49,0x36,0x00,0x00,
+  0x00,0x06,0x49,0x49,0x29,0x1E,0x00,0x00,
+  0x00,0x00,0x36,0x36,0x00,0x00,0x00,0x00,
+  0x00,0x00,0xAC,0x6C,0x00,0x00,0x00,0x00,
+  0x00,0x08,0x14,0x22,0x41,0x00,0x00,0x00,
+  0x00,0x14,0x14,0x14,0x14,0x14,0x00,0x00,
+  0x00,0x41,0x22,0x14,0x08,0x00,0x00,0x00,
+  0x00,0x02,0x01,0x51,0x09,0x06,0x00,0x00,
+  0x00,0x32,0x49,0x79,0x41,0x3E,0x00,0x00,
+  0x00,0x7E,0x09,0x09,0x09,0x7E,0x00,0x00,
+  0x00,0x7F,0x49,0x49,0x49,0x36,0x00,0x00,
+  0x00,0x3E,0x41,0x41,0x41,0x22,0x00,0x00,
+  0x00,0x7F,0x41,0x41,0x22,0x1C,0x00,0x00,
+  0x00,0x7F,0x49,0x49,0x49,0x41,0x00,0x00,
+  0x00,0x7F,0x09,0x09,0x09,0x01,0x00,0x00,
+  0x00,0x3E,0x41,0x41,0x51,0x72,0x00,0x00,
+  0x00,0x7F,0x08,0x08,0x08,0x7F,0x00,0x00,
+  0x00,0x41,0x7F,0x41,0x00,0x00,0x00,0x00,
+  0x00,0x20,0x40,0x41,0x3F,0x01,0x00,0x00,
+  0x00,0x7F,0x08,0x14,0x22,0x41,0x00,0x00,
+  0x00,0x7F,0x40,0x40,0x40,0x40,0x00,0x00,
+  0x00,0x7F,0x02,0x0C,0x02,0x7F,0x00,0x00,
+  0x00,0x7F,0x04,0x08,0x10,0x7F,0x00,0x00,
+  0x00,0x3E,0x41,0x41,0x41,0x3E,0x00,0x00,
+  0x00,0x7F,0x09,0x09,0x09,0x06,0x00,0x00,
+  0x00,0x3E,0x41,0x51,0x21,0x5E,0x00,0x00,
+  0x00,0x7F,0x09,0x19,0x29,0x46,0x00,0x00,
+  0x00,0x26,0x49,0x49,0x49,0x32,0x00,0x00,
+  0x00,0x01,0x01,0x7F,0x01,0x01,0x00,0x00,
+  0x00,0x3F,0x40,0x40,0x40,0x3F,0x00,0x00,
+  0x00,0x1F,0x20,0x40,0x20,0x1F,0x00,0x00,
+  0x00,0x3F,0x40,0x38,0x40,0x3F,0x00,0x00,
+  0x00,0x63,0x14,0x08,0x14,0x63,0x00,0x00,
+  0x00,0x03,0x04,0x78,0x04,0x03,0x00,0x00,
+  0x00,0x61,0x51,0x49,0x45,0x43,0x00,0x00,
+  0x00,0x7F,0x41,0x41,0x00,0x00,0x00,0x00,
+  0x00,0x02,0x04,0x08,0x10,0x20,0x00,0x00,
+  0x00,0x41,0x41,0x7F,0x00,0x00,0x00,0x00,
+  0x00,0x04,0x02,0x01,0x02,0x04,0x00,0x00,
+  0x00,0x80,0x80,0x80,0x80,0x80,0x00,0x00,
+  0x00,0x01,0x02,0x04,0x00,0x00,0x00,0x00,
+  0x00,0x20,0x54,0x54,0x54,0x78,0x00,0x00,
+  0x00,0x7F,0x48,0x44,0x44,0x38,0x00,0x00,
+  0x00,0x38,0x44,0x44,0x28,0x00,0x00,0x00,
+  0x00,0x38,0x44,0x44,0x48,0x7F,0x00,0x00,
+  0x00,0x38,0x54,0x54,0x54,0x18,0x00,0x00,
+  0x00,0x08,0x7E,0x09,0x02,0x00,0x00,0x00,
+  0x00,0x18,0xA4,0xA4,0xA4,0x7C,0x00,0x00,
+  0x00,0x7F,0x08,0x04,0x04,0x78,0x00,0x00,
+  0x00,0x00,0x7D,0x00,0x00,0x00,0x00,0x00,
+  0x00,0x80,0x84,0x7D,0x00,0x00,0x00,0x00,
+  0x00,0x7F,0x10,0x28,0x44,0x00,0x00,0x00,
+  0x00,0x41,0x7F,0x40,0x00,0x00,0x00,0x00,
+  0x00,0x7C,0x04,0x18,0x04,0x78,0x00,0x00,
+  0x00,0x7C,0x08,0x04,0x7C,0x00,0x00,0x00,
+  0x00,0x38,0x44,0x44,0x38,0x00,0x00,0x00,
+  0x00,0xFC,0x24,0x24,0x18,0x00,0x00,0x00,
+  0x00,0x18,0x24,0x24,0xFC,0x00,0x00,0x00,
+  0x00,0x00,0x7C,0x08,0x04,0x00,0x00,0x00,
+  0x00,0x48,0x54,0x54,0x24,0x00,0x00,0x00,
+  0x00,0x04,0x7F,0x44,0x00,0x00,0x00,0x00,
+  0x00,0x3C,0x40,0x40,0x7C,0x00,0x00,0x00,
+  0x00,0x1C,0x20,0x40,0x20,0x1C,0x00,0x00,
+  0x00,0x3C,0x40,0x30,0x40,0x3C,0x00,0x00,
+  0x00,0x44,0x28,0x10,0x28,0x44,0x00,0x00,
+  0x00,0x1C,0xA0,0xA0,0x7C,0x00,0x00,0x00,
+  0x00,0x44,0x64,0x54,0x4C,0x44,0x00,0x00,
+  0x00,0x08,0x36,0x41,0x00,0x00,0x00,0x00,
+  0x00,0x00,0x7F,0x00,0x00,0x00,0x00,0x00,
+  0x00,0x41,0x36,0x08,0x00,0x00,0x00,0x00,
+  0x00,0x02,0x01,0x01,0x02,0x01,0x00,0x00,
+  0x00,0x02,0x05,0x05,0x02,0x00,0x00,0x00 
+]
     let _I2CAddr = 60;
     let _screen = pins.createBuffer(1025);
+	let _buf1=pins.createBuffer(1);
     let _buf2 = pins.createBuffer(2);
-
+ 
 
     function cmd1(d: number) {
         _buf2[0] = 0x80;
@@ -148,6 +116,8 @@ namespace OLED12864_I2C {
     }
 
     function set_pos(col: number = 0, page: number = 0) {
+		if(page>7) page = 7
+		if(col>127) col = 127
         cmd1(0xb0 | page) // page number
         cmd1(0x00 | (col % 16)) // lower start column address
         cmd1(0x10 | (col >> 4)) // upper start column address    
@@ -164,120 +134,54 @@ namespace OLED12864_I2C {
      * set pixel in OLED
      * @param x is X alis, eg: 0
      * @param y is Y alis, eg: 0
-     * @param color is dot color, eg: 1
      */
-    //% blockId="OLED12864_I2C_PIXEL" block="set pixel at x %x|y %y|color %color"
+    //% blockId="OLED12864_I2C_PIXEL" block="set pixel at x %x|y %y"
     //% weight=70 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
-    export function pixel(x: number, y: number, color: number = 1) {
+    export function pixel(x: number, y: number) {
         let page = y >> 3
         let shift_page = y % 8
         let ind = x + page * 128 + 1
-        let b = (color) ? (_screen[ind] | (1 << shift_page)) : clrbit(_screen[ind], shift_page)
+        let b = (_screen[ind] | (1 << shift_page))
         _screen[ind] = b
         set_pos(x, page)
 
-        _buf2[0] = 0x40
-        _buf2[1] = b
-        pins.i2cWriteBuffer(_I2CAddr, _buf2)
+		_buf2[0] = 0x40
+		_buf2[1] = b
+		pins.i2cWriteBuffer(_I2CAddr, _buf2)
     }
 
     /**
      * show text in OLED
      * @param x is X alis, eg: 0
-     * @param y is Y alis, eg: 0
-     * @param s is the text will be show, eg: 'Hello!'
-     * @param color is string color, eg: 1
+     * @param line is Line alis, eg: 0
+     * @param s is the text will be show, eg: 'Hi!'
      */
-    //% blockId="OLED12864_I2C_SHOWSTRING" block="show string at x %x|y %y|text %s|color %color"
+    //% blockId="OLED12864_I2C_SHOWSTRING" block="show string at x %x|line %line|text %s"
     //% weight=80 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
-    export function showString(x: number, y: number, s: string, color: number = 1) {
-        let col = 0
-        let p = 0
-        let ind = 0
+    export function showString(x: number, line: number, s: string) {
+		set_pos(x, line)
         for (let n = 0; n < s.length; n++) {
-            p = font[s.charCodeAt(n)]
-            console.log("s:" + s)
-            console.log("s.charCodeAt(n):" + s.charCodeAt(n))
-            for (let i = 0; i < 5; i++) {
-                col = 0
-                for (let j = 0; j < 5; j++) {
-                    if (p & (1 << (5 * i + j)))
-                        col |= (1 << (j +
-                            1))
-                }
-                ind = (x + n) * 5 + (y >> 3) * 128 + i + 1;
-                if (color == 0)
-                    col = 255 - col
-                _screen[ind] = col
+            for (let i = 0; i < 8; i++) {
+				_buf2[0]=0x40
+				_buf2[1]=font[(s.charCodeAt(n)-32)*8+i]
+				pins.i2cWriteBuffer(_I2CAddr, _buf2)
             }
         }
-        set_pos(x, (y >> 3))
-        let ind0 = x * 5 + (y >> 3) * 128
-
-        let buf = _screen.slice(ind0, ind + 1)
-        buf[0] = 0x40
-        pins.i2cWriteBuffer(_I2CAddr, buf)
-
-
     }
 
-
-    /**
-     * show text in OLED
-     * @param x0 is X alis, eg: 0
-     * @param y0 is Y alis, eg: 0
-     * @param r is the text will be show, eg: 'Hello!'
-     * @param color is string color, eg: 1
-     */
-    //% blockId="OLED12864_I2C_Circle" block="show string at x0 %x0|y0 %y0|r %r|color %color"
-    //% weight=80 blockGap=8
-    //% parts=OLED12864_I2C trackArgs=0
-    export function drawCircle(x0: number, y0: number, r: number, color: number) {
-        let f = 1 - r;
-        let ddF_x = 1;
-        let ddF_y = -2 * r;
-        let x = 0;
-        let y = r;
-
-        pixel(x0, y0 + r, color);
-        pixel(x0, y0 - r, color);
-        pixel(x0 + r, y0, color);
-        pixel(x0 - r, y0, color);
-
-        while (x < y) {
-            if (f >= 0) {
-                y--;
-                ddF_y += 2;
-                f += ddF_y;
-            }
-            x++;
-            ddF_x += 2;
-            f += ddF_x;
-
-            pixel(x0 + x, y0 + y, color);
-            pixel(x0 - x, y0 + y, color);
-            pixel(x0 + x, y0 - y, color);
-            pixel(x0 - x, y0 - y, color);
-            pixel(x0 + y, y0 + x, color);
-            pixel(x0 - y, y0 + x, color);
-            pixel(x0 + y, y0 - x, color);
-            pixel(x0 - y, y0 - x, color);
-        }
-    }
     /**
      * show a number in OLED
      * @param x is X alis, eg: 0
-     * @param y is Y alis, eg: 0
-     * @param num is the number will be show, eg: 12
-     * @param color is number color, eg: 1
+     * @param line is Line, eg: 0
+     * @param num is the number will be show, eg: 123
      */
-    //% blockId="OLED12864_I2C_NUMBER" block="show a Number at x %x|y %y|number %num|color %color"
+    //% blockId="OLED12864_I2C_NUMBER" block="show a Number at x %x|line %line|number %num"
     //% weight=80 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
-    export function showNumber(x: number, y: number, num: number, color: number = 1) {
-        showString(x, y, num.toString(), color)
+    export function showNumber(x: number, line: number, num: number) {
+        showString(x, line, num.toString())
     }
 
     /**
@@ -285,14 +189,13 @@ namespace OLED12864_I2C {
      * @param x is X alis, eg: 0
      * @param y is Y alis, eg: 0
      * @param len is the length of line, eg: 10
-     * @param color is line color, eg: 1
      */
-    //% blockId="OLED12864_I2C_HLINE" block="draw a horizontal line at x %x|y %y|number %len|color %color"
+    //% blockId="OLED12864_I2C_HLINE" block="draw a horizontal line at x %x|y %y|number %len"
     //% weight=71 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
-    export function hline(x: number, y: number, len: number, color: number = 1) {
+    export function hline(x: number, y: number, len: number) {
         for (let i = x; i < (x + len); i++)
-            pixel(i, y, color)
+            pixel(i, y)
     }
 
     /**
@@ -300,14 +203,13 @@ namespace OLED12864_I2C {
      * @param x is X alis, eg: 0
      * @param y is Y alis, eg: 0
      * @param len is the length of line, eg: 10
-     * @param color is line color, eg: 1
      */
-    //% blockId="OLED12864_I2C_VLINE" block="draw a vertical line at x %x|y %y|number %len|color %color"
+    //% blockId="OLED12864_I2C_VLINE" block="draw a vertical line at x %x|y %y|number %len"
     //% weight=72 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
-    export function vline(x: number, y: number, len: number, color: number = 1) {
+    export function vline(x: number, y: number, len: number) {
         for (let i = y; i < (y + len); i++)
-            pixel(x, i, color)
+            pixel(x, i)
     }
 
     /**
@@ -316,21 +218,103 @@ namespace OLED12864_I2C {
      * @param y1 is Y alis, eg: 0
      * @param x2 is X alis, eg: 60
      * @param y2 is Y alis, eg: 30
-     * @param color is line color, eg: 1
      */
-    //% blockId="OLED12864_I2C_RECT" block="draw a rectangle at x1 %x1|y1 %y1|x2 %x2|y2 %y2|color %color"
+    //% blockId="OLED12864_I2C_RECT" block="draw a rectangle at x1 %x1|y1 %y1|x2 %x2|y2 %y2"
     //% weight=73 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
-    export function rect(x1: number, y1: number, x2: number, y2: number, color: number = 1) {
+    export function rect(x1: number, y1: number, x2: number, y2: number) {
         if (x1 > x2)
             x1 = [x2, x2 = x1][0];
         if (y1 > y2)
             y1 = [y2, y2 = y1][0];
-        hline(x1, y1, x2 - x1 + 1, color)
-        hline(x1, y2, x2 - x1 + 1, color)
-        vline(x1, y1, y2 - y1 + 1, color)
-        vline(x2, y1, y2 - y1 + 1, color)
+        hline(x1, y1, x2 - x1 + 1)
+        hline(x1, y2, x2 - x1 + 1)
+        vline(x1, y1, y2 - y1 + 1)
+        vline(x2, y1, y2 - y1 + 1)
     }
+
+
+    /**
+     * draw a line
+     * @param x1 is X alis, eg: 0
+     * @param y1 is Y alis, eg: 0
+     * @param x2 is X alis, eg: 60
+     * @param y2 is Y alis, eg: 30
+     */
+    //% blockId="OLED12864_I2C_LINET" block="draw a line at x1 %x1|y1 %y1|x2 %x2|y2 %y2"
+    //% weight=73 blockGap=8
+    //% parts=OLED12864_I2C trackArgs=0
+    export function line(x1: number, y1: number, x2: number, y2: number) {
+        let a = (y1-y2)/(x1-x2);
+        let b = y1 - a*x1;
+        let flgx = x1 < x2;
+        let x = flgx ? x1 : x2;
+        let flgy = y1 < y2;
+        let y = flgy ? y1 : y2;
+        if ((x1 == x2) && y1 != y2)   {
+            vline(x1, y, Math.abs(y1 -y2) + 1)
+        }else if ((x1 != x2) && y1 == y2)   {
+            hline(x, y1, Math.abs(x1-x2) + 1)
+        }else if (Math.abs(x1 -x2) > Math.abs(y1-y2)) {
+            for (let i = x; i <= (flgx ? x2 : x1); i++){
+                pixel(i, Math.round(a*i + b))
+            }
+        }else{
+            for (let i = y; i <= (flgy ? y2 : y1); i++){
+                pixel(Math.round((i - b)/a), i)
+            }
+        }
+        
+            
+    }
+
+
+    /**
+     * draw a circle
+     * @param x1 is X alis, eg: 0
+     * @param y1 is Y alis, eg: 0
+     * @param x2 is X alis, eg: 60
+     * @param y2 is Y alis, eg: 30
+     */
+    //% blockId="OLED12864_I2C_CIRCLE" block="draw a circle at x0 %x0|y0 %y0 |r %r"
+    //% weight=73 blockGap=8
+    //% parts=OLED12864_I2C trackArgs=0
+    export function circle(x0: number, y0: number, r: number) {
+           
+    let f = 1 - r;
+    let ddF_x = 1;
+    let ddF_y = -2 * r;
+    let x = 0;
+    let y = r;
+    
+    pixel(x0, y0+r);
+    pixel(x0, y0-r);
+    pixel(x0+r, y0);
+    pixel(x0-r, y0);
+    
+    while (x<y)
+    {
+        if (f >= 0)
+        {
+            y--;
+            ddF_y += 2;
+            f += ddF_y;
+        }
+        x++;
+        ddF_x += 2;
+        f += ddF_x;
+        
+        pixel(x0 + x, y0 + y);
+        pixel(x0 - x, y0 + y);
+        pixel(x0 + x, y0 - y);
+        pixel(x0 - x, y0 - y);
+        pixel(x0 + y, y0 + x);
+        pixel(x0 - y, y0 + x);
+        pixel(x0 + y, y0 - x);
+        pixel(x0 - y, y0 - x);
+    }
+    }
+
 
     /**
      * invert display
@@ -351,13 +335,14 @@ namespace OLED12864_I2C {
     //% weight=64 blockGap=8
     //% parts=OLED12864_I2C trackArgs=0
     export function draw() {
-
-        for (let i = 0; i < 8; i++) {
-            set_pos(0, i)
-            let buf = _screen.slice(i * 128 + 1, 128)
-            pins.i2cWriteBuffer(_I2CAddr, _screen)
-        }
-
+        
+		for(let i=0;i<8;i++)  
+		{  
+			set_pos(0,i) 
+			let buf = _screen.slice(i*128+1, 128)
+			pins.i2cWriteBuffer(_I2CAddr, _screen)     
+		}
+        
     }
 
     /**
@@ -400,33 +385,33 @@ namespace OLED12864_I2C {
     //% parts=OLED12864_I2C trackArgs=0
     export function init() {
 
-        cmd1(0xAE)//--display off
-        cmd1(0x00)//---set low column address
-        cmd1(0x10)//---set high column address
-        cmd1(0x40)//--set start line address  
-        cmd1(0xB0)//--set page address
-        cmd1(0x81) // contract control
-        cmd1(0xFF)//--128   
-        cmd1(0xA1)//set segment remap 
-        cmd1(0xA6)//--normal / reverse
-        cmd1(0xA8)//--set multiplex ratio(1 to 64)
-        cmd1(0x3F)//--1/32 duty
-        cmd1(0xC8)//Com scan direction
-        cmd1(0xD3)//-set display offset
-        cmd1(0x00)//
-        cmd1(0xD5)//set osc division
-        cmd1(0x80)//
-        cmd1(0xD8)//set area color mode off
-        cmd1(0x05)//
-        cmd1(0xD9)//Set Pre-Charge Period
-        cmd1(0xF1)//
-        cmd1(0xDA)//set com pin configuartion
-        cmd1(0x12)//
-        cmd1(0xDB)//set Vcomh
-        cmd1(0x30)//
-        cmd1(0x8D)//set charge pump enable
-        cmd1(0x14)//
-        cmd1(0xAF)//--turn on oled panel
+		cmd1(0xAE)//--display off
+		cmd1(0x00)//---set low column address
+		cmd1(0x10)//---set high column address
+		cmd1(0x40)//--set start line address  
+		cmd1(0xB0)//--set page address
+		cmd1(0x81) // contract control
+		cmd1(0xFF)//--128   
+		cmd1(0xA1)//set segment remap 
+		cmd1(0xA6)//--normal / reverse
+		cmd1(0xA8)//--set multiplex ratio(1 to 64)
+		cmd1(0x3F)//--1/32 duty
+		cmd1(0xC8)//Com scan direction
+		cmd1(0xD3)//-set display offset
+		cmd1(0x00)//
+		cmd1(0xD5)//set osc division
+		cmd1(0x80)//
+		cmd1(0xD8)//set area color mode off
+		cmd1(0x05)//
+		cmd1(0xD9)//Set Pre-Charge Period
+		cmd1(0xF1)//
+		cmd1(0xDA)//set com pin configuartion
+		cmd1(0x12)//
+		cmd1(0xDB)//set Vcomh
+		cmd1(0x30)//
+		cmd1(0x8D)//set charge pump enable
+		cmd1(0x14)//
+		cmd1(0xAF)//--turn on oled panel
         clear()
     }
 }
@@ -1384,37 +1369,46 @@ namespace ntcPac {
 
 
 /**
- * BME180 block
+ * BMP180 block
  */
-//% weight=100 color=#70c0f0 icon="\uf042" block="BME180"
-namespace BME180 {
-    let BME180_I2C_ADDR = 0x77
+//% weight=100 color=#70c0f0 icon="\uf042" block="BMP180"
+namespace BMP180 {
+    let BMP180_I2C_ADDR = 0x77
 
     function setreg(reg: number, dat: number): void {
         let buf = pins.createBuffer(2);
         buf[0] = reg;
         buf[1] = dat;
-        pins.i2cWriteBuffer(BME180_I2C_ADDR, buf);
+        pins.i2cWriteBuffer(BMP180_I2C_ADDR, buf);
     }
 
+
+    
     function getreg(reg: number): number {
-        pins.i2cWriteNumber(BME180_I2C_ADDR, reg, NumberFormat.UInt8BE);
-        return pins.i2cReadNumber(BME180_I2C_ADDR, NumberFormat.UInt8BE);
+        pins.i2cWriteNumber(BMP180_I2C_ADDR, reg, NumberFormat.UInt8BE);
+		
+        return pins.i2cReadNumber(BMP180_I2C_ADDR, NumberFormat.UInt8BE);
     }
 
     function getInt8LE(reg: number): number {
-        pins.i2cWriteNumber(BME180_I2C_ADDR, reg, NumberFormat.UInt8BE);
-        return pins.i2cReadNumber(BME180_I2C_ADDR, NumberFormat.Int8LE);
+        pins.i2cWriteNumber(BMP180_I2C_ADDR, reg, NumberFormat.UInt8BE);
+        return pins.i2cReadNumber(BMP180_I2C_ADDR, NumberFormat.Int8LE);
     }
 
     function getUInt16LE(reg: number): number {
-        pins.i2cWriteNumber(BME180_I2C_ADDR, reg, NumberFormat.UInt8BE);
-        return pins.i2cReadNumber(BME180_I2C_ADDR, NumberFormat.UInt16LE);
+        pins.i2cWriteNumber(BMP180_I2C_ADDR, reg, NumberFormat.UInt8BE);
+        let i2cdata = pins.i2cReadNumber(BMP180_I2C_ADDR, NumberFormat.UInt16LE);
+		return (((i2cdata&0xff)<<8)|((i2cdata&0xff00)>>8))
     }
 
     function getInt16LE(reg: number): number {
-        pins.i2cWriteNumber(BME180_I2C_ADDR, reg, NumberFormat.UInt8BE);
-        return pins.i2cReadNumber(BME180_I2C_ADDR, NumberFormat.Int16LE);
+        pins.i2cWriteNumber(BMP180_I2C_ADDR, reg, NumberFormat.UInt8BE);
+		let i2cdata = pins.i2cReadNumber(BMP180_I2C_ADDR, NumberFormat.Int16LE);
+		let i2cnum = (((i2cdata&0xff)<<8)|((i2cdata&0xff00)>>8));
+		if (i2cnum < 0x8000)
+			return i2cnum
+		else
+			return (0xffff0000|i2cnum)
     }
 
     let ac1 = getInt16LE(0xAA)
@@ -1431,10 +1425,9 @@ namespace BME180 {
 	let b5 = 0
 	let T = 0
 	let P = 0
-	let alt = 0
 	let OSS = 0
 	
-    function bmp085GetTemperature(ut:number): number {
+    function bmp180GetTemperature(ut:number): number {
 
 	  let x1 = ((ut - ac6)*ac5) >> 15
 	  let x2 = (mc << 11)/(x1 + md)
@@ -1446,7 +1439,7 @@ namespace BME180 {
 	  return Math.ceil(temp)
 	}
 
-	function bmp085GetPressure(up: number): number{
+	function bmp180GetPressure(up: number): number{
 	  let p=0
 	  let value=0
 
@@ -1463,9 +1456,8 @@ namespace BME180 {
 	  x3 = ((x1 + x2) + 2)>>2;
 	  
 	  let b4 = (ac4 * (x3 + 32768))>>15
-
+	  b4 &= 0x0000FFFF;
 	  let b7 = ((up - b3) * (50000>>OSS))
-	  	
 	  if (b7 < 0x80000000)
 		p = ((b7*2)/b4)
 	  else
@@ -1479,87 +1471,58 @@ namespace BME180 {
 	  return Math.ceil(p)
 	}
 
-	function bmp085ReadUT(): number{
+	function bmp180ReadUT(): number{
 	  // Write 0x2E into Register 0xF4
 	  // This requests a temperature reading
 		setreg(0xF4,0x2E)
 	  // Wait at least 4.5ms
-		control.waitMicros(10);
+		basic.pause(10)
 
 	  // Read two bytes from registers 0xF6 and 0xF7
 		let ut = getInt16LE(0xF6);
+		ut &= 0x0000FFFF;
 		return ut;
 	}
 
-	function bmp085ReadUP(): number{
+	function bmp180ReadUP(): number{
 	  let up = 0;
 
 	  // Write 0x34+(OSS<<6) into register 0xF4
 	  // Request a pressure reading w/ oversampling setting
 		setreg(0xF4,0x34 + (OSS<<6))
 	  // Wait for conversion, delay time dependent on OSS
-		control.waitMicros(10);
+		basic.pause(10)
 
 	  // Read register 0xF6 (MSB), 0xF7 (LSB), and 0xF8 (XLSB)
-		up = getUInt16LE(0xF6);
+		up = getInt16LE(0xF6);
 		up &= 0x0000FFFF;
-
 	  return up;
 	}
 
-	function calcAltitude(pressure: number): number{
-	  let A = pressure/101325;
-	  let B = 0.190295;
-	  let C = Math.pow(A,B);
-	  C = 1 - C;
-	  C = C*44330;
-	  return C;
-	}
 	function refresh(){
-		let temp = bmp085ReadUT()
-		T = bmp085GetTemperature(temp)
-		let up = bmp085ReadUP()
-		P = bmp085GetPressure(up)
-		alt = calcAltitude(P)
+		let temp = bmp180ReadUT()
+		temp = bmp180ReadUT()
+		T = bmp180GetTemperature(temp)
+		let up = bmp180ReadUP()
+		P = bmp180GetPressure(up)
 	}
     /**
-     * get pressure
+     * get air pressure
      */
-    //% blockId="BME180_GET_PRESSURE" block="get pressure"
+    //% blockId="BMP180_GET_PRESSURE" block="get air pressure"
     //% weight=80 blockGap=8
     export function pressure(): number {
 		refresh()
         return P;
     }
 
-    /**
-     * get temperature
-     */
-    //% blockId="BME180_GET_TEMPERATURE" block="get temperature"
-    //% weight=80 blockGap=8
     export function temperature(): number {
 		refresh()
         return T;
     }
 
-    /**
-     * get altitude
-     */
-    //% blockId="BME180_GET_HUMIDITY" block="get altitude"
-    //% weight=80 blockGap=8
-    export function altitude(): number {
-        refresh()
-        return alt;
-    }
-    /**
-     * get id
-     */
-    //% blockId="BME180_GET_ID" block="get id"
-    //% weight=80 blockGap=8
     export function id(): number {
         let id = getreg(0xD0)
         return id;
     }
-	
-	
 }

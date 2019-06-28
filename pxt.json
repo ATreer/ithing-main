@@ -9,8 +9,8 @@
     "files": [
         "README.md",
         "ithing-main.ts",
-		"locales/zh/core-strings.json",
-		"locales/zh/core-jsdoc-strings.json"
+		"_locales/zh/core-strings.json",
+		"_locales/zh/core-jsdoc-strings.json"
     ],
     "testFiles": [
         "neotest.ts"

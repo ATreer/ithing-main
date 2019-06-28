@@ -1,6 +1,6 @@
 {
     "name": "ithing-main",
-    "version": "0.6.26",
+    "version": "0.6.29",
     "description": "AdaFruit ithing-main driver",
     "license": "MIT",
     "dependencies": {

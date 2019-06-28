@@ -1,0 +1,28 @@
+{
+    "name": "anxin-oled",
+    "version": "0.6.25",
+    "description": "AdaFruit anxin-oled driver",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "anxin-oled.ts",
+		"locales/zh/core-strings.json",
+		"locales/zh/core-jsdoc-strings.json"
+    ],
+    "testFiles": [
+        "neotest.ts"
+    ],
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "enabled": 0
+                }
+            }
+        }
+    },
+    "public": true
+}

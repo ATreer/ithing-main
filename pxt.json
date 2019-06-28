@@ -12,6 +12,7 @@
 		"_locales/zh/core-strings.json",
 		"_locales/zh/core-jsdoc-strings.json"
     ],
+	"icon": "icon.png",
     "testFiles": [
         "neotest.ts"
     ],
